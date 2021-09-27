@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@dogstudio/highway": "^2.2.1"
+    "@dogstudio/highway": "^2.2.1",
+    "gsap": "^3.7.1"
   },
   "devDependencies": {
     "sass": "^1.42.1"

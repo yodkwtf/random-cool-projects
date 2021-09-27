@@ -3,3 +3,54 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.nav-links {
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  margin-left: auto;
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  font-size: 1.25rem;
+}
+
+.hero {
+  background-image: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);
+}
+.about {
+  background-image: linear-gradient(to left, #243949 0%, #517fa4 100%);
+}
+
+.hero,
+.about {
+  height: 90vh;
+  position: absolute;
+  width: 100%;
+}
+
+.hero-center,
+.about-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+
+  img {
+    height: 60%;
+  }
+
+  h1 {
+    font-size: 4rem;
+    margin: 2rem 0;
+  }
+
+  p {
+    font-size: 1.25rem;
+  }
+}
