@@ -1,59 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+nav {
+  height: 10vh;
+  background: #222;
+}
+nav .nav-center {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 90vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 10vh;
+}
+nav .logo {
+  width: 5rem;
 }
 
 .nav-links {
-  height: 10vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 50%;
-  margin-left: auto;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
   list-style: none;
+  flex-grow: 1;
+  max-width: 50%;
 }
 
 .nav-link {
   text-decoration: none;
-  color: black;
-  font-size: 1.25rem;
+  color: whitesmoke;
+  position: relative;
+  padding-bottom: 0.25rem;
+}
+@media (min-width: 792px) {
+  .nav-link {
+    font-size: 1.25rem;
+  }
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: white;
+  transition: all 0.3s linear;
+}
+.nav-link:hover::after {
+  width: 100%;
 }
 
 .hero {
   background-image: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);
+  background-image: linear-gradient(315deg, #a445b2 0%, #d41872 52%, #ff0066 100%);
 }
 
 .about {
   background-image: linear-gradient(to left, #243949 0%, #517fa4 100%);
 }
 
+.contact {
+  background-image: linear-gradient(to right, #c1c161 0%, #c1c161 0%, #d4d4b1 100%);
+}
+
 .hero,
-.about {
+.about,
+.contact {
   height: 90vh;
   position: absolute;
   width: 100%;
 }
 
-.hero-center,
-.about-center {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.banner {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 90vw;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  text-align: center;
+  gap: 3rem;
+}
+.banner .banner-img {
+  max-width: 30rem;
+  max-height: 25rem;
+}
+.banner .banner-img img {
+  width: 100%;
   height: 100%;
 }
-.hero-center img,
-.about-center img {
-  height: 60%;
-}
-.hero-center h1,
-.about-center h1 {
-  font-size: 4rem;
+.banner h1 {
+  font-size: 2.5rem;
   margin: 2rem 0;
+  color: white;
 }
-.hero-center p,
-.about-center p {
-  font-size: 1.25rem;
+.banner p {
+  color: white;
+}
+@media (min-width: 992px) {
+  .banner {
+    grid-template-columns: 1fr auto;
+    text-align: left;
+    gap: 6rem;
+  }
+  .banner h1 {
+    font-size: 4rem;
+  }
+  .banner p {
+    font-size: 1.25rem;
+    max-width: 40rem;
+  }
 }
 
 /*# sourceMappingURL=/style.6b54f5b7.css.map */

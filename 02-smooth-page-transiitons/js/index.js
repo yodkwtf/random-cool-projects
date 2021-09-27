@@ -1,9 +1,8 @@
 import Highway from '@dogstudio/highway';
 import Fade from './transition';
 
-const H = new Highway.Core({
-  // hero: Fade,
-  // about:Slide
+// required to run the animations
+const run = new Highway.Core({
   transitions: {
     default: Fade,
   },

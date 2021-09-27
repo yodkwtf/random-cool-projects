@@ -6004,7 +6004,7 @@ exports.default = void 0;
 
 var _highway = _interopRequireDefault(require("@dogstudio/highway"));
 
-var _gsap = require("gsap");
+var _gsap = _interopRequireDefault(require("gsap"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6030,6 +6030,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+// create class
 var Fade = /*#__PURE__*/function (_Highway$Transition) {
   _inherits(Fade, _Highway$Transition);
 
@@ -6043,18 +6044,24 @@ var Fade = /*#__PURE__*/function (_Highway$Transition) {
 
   _createClass(Fade, [{
     key: "in",
-    value: function _in(_ref) {
+    value: // things to do before
+    function _in(_ref) {
       var from = _ref.from,
           to = _ref.to,
           done = _ref.done;
-      var t1 = new _gsap.TimelineLite();
+
+      // create a timeline
+      var t1 = _gsap.default.timeline(); //- first animation [moving from off screen to full screeb from left]
+
+
       t1.fromTo(to, 0.5, {
         left: '-100%',
         top: '50%'
       }, {
         left: '0'
-      }).fromTo(to, 0.5, {
-        height: '2vh'
+      }) //- second animation [expanding the page from 1vh to full height]
+      .fromTo(to, 0.5, {
+        height: '1vh'
       }, {
         height: '90vh',
         top: '10%',
@@ -6062,12 +6069,14 @@ var Fade = /*#__PURE__*/function (_Highway$Transition) {
           from.remove();
           done();
         }
-      }).fromTo(to.children, 2, {
+      }) //- third animation [hiding the contents of the page during animation]
+      .fromTo(to.children, 2, {
         opacity: '0'
       }, {
         opacity: '1'
       });
-    }
+    } // things to do after
+
   }, {
     key: "out",
     value: function out(_ref2) {
@@ -6091,9 +6100,8 @@ var _transition = _interopRequireDefault(require("./transition"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var H = new _highway.default.Core({
-  // hero: Fade,
-  // about:Slide
+// required to run the animations
+var run = new _highway.default.Core({
   transitions: {
     default: _transition.default
   }
